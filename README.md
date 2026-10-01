@@ -143,6 +143,25 @@ no state and no secrets — caller identity is supplied per request. Production
 hardening (token-mode auth with a JWT, VNet ingress, a gateway in front) is
 documented in `docs/architecture.md`.
 
+## Using from LangChain / LangGraph
+
+The server speaks standard MCP, so any MCP-capable client can consume it.
+LangChain exposes it through `langchain-mcp-adapters`:
+
+```python
+from langchain_mcp_adapters.client import MultiServerMCPClient
+
+async with MultiServerMCPClient({
+    "governed-mcp": {
+        "url": "http://localhost:8000/mcp",
+        "transport": "streamable_http",
+    }
+}) as client:
+    tools = await client.get_tools()
+    # query_customers / query_accounts / aggregate_balances / describe_schema
+    # are now typed LangChain tools, each bound by the caller's entitlements.
+```
+
 ## Design notes
 
 - **No LLM in the tool path.** Tools are pure functions over a synthetic
