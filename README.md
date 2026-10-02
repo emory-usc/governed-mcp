@@ -1,4 +1,6 @@
-# governed-mcp
+# Governor MCP
+
+[![CI](https://github.com/emory-usc/governor-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/emory-usc/governor-mcp/actions/workflows/ci.yml)
 
 A **governed, read-only MCP server** — typed tools, per-caller row-level security,
 and deterministic guardrails, with an eval harness that proves leakage can't
@@ -62,8 +64,8 @@ See [docs/architecture.md](docs/architecture.md) for the full rationale.
 Requires Python 3.11+ and [`uv`](https://docs.astral.sh/uv/).
 
 ```bash
-git clone https://github.com/emory-usc/governed-mcp.git
-cd governed-mcp
+git clone https://github.com/emory-usc/governor-mcp.git
+cd governor-mcp
 
 uv sync --extra mcp          # install (core + MCP SDK)
 
@@ -152,7 +154,7 @@ LangChain exposes it through `langchain-mcp-adapters`:
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
 client = MultiServerMCPClient({
-    "governed-mcp": {
+    "governor-mcp": {
         "url": "http://localhost:8000/mcp",
         "transport": "streamable_http",
     }

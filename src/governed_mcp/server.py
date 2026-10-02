@@ -41,7 +41,7 @@ def create_mcp():
     """Build the MCP server. ``mcp`` is imported lazily (core runs without it)."""
     from mcp.server.mcpserver import MCPServer
 
-    mcp = MCPServer(name="governed-mcp")
+    mcp = MCPServer(name="governor-mcp")
 
     @mcp.tool()
     def query_customers(segment: str | None = None, region: str | None = None) -> dict[str, Any]:

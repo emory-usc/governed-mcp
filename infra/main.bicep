@@ -15,7 +15,7 @@ param location string = 'westus3'
 @description('Lowercase alphanumeric prefix for resource names')
 param namePrefix string = 'governedmcp'
 
-@description('Container image to deploy (e.g. ghcr.io/<user>/governed-mcp:latest)')
+@description('Container image to deploy (e.g. ghcr.io/<user>/governor-mcp:latest)')
 param containerImage string
 
 // ---------------------------------------------------------------------------
@@ -86,7 +86,7 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
     template: {
       containers: [
         {
-          name: 'governed-mcp'
+          name: 'governor-mcp'
           image: containerImage
           resources: {
             cpu: json('0.25')

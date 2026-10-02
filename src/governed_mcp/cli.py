@@ -119,7 +119,7 @@ def schema() -> None:
 @app.command()
 def version() -> None:
     """Print the version."""
-    console.print(f"governed-mcp {__version__}")
+    console.print(f"governor-mcp {__version__}")
 
 
 if __name__ == "__main__":

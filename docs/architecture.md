@@ -2,7 +2,7 @@
 
 ## What this is
 
-`governed-mcp` is a **read-only MCP server with per-caller row-level security and
+`governor-mcp` is a **read-only MCP server with per-caller row-level security and
 deterministic guardrails**. It gives an AI agent a *governed* window onto a data
 surface: the agent can ask questions and read published fields, but it cannot
 write, cannot reach unpublished fields, and cannot see rows it isn't entitled to
