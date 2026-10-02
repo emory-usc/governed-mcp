@@ -24,7 +24,7 @@ from governed_mcp.core import describe_schema
 from governed_mcp.models import CallerClaims, QueryResult
 
 app = typer.Typer(
-    help="Governed MCP — a read-only MCP server with row-level security and deterministic guardrails.",
+    help="Governor MCP — a read-only MCP server with row-level security and deterministic guardrails.",
     no_args_is_help=True,
 )
 console = Console()
@@ -65,7 +65,7 @@ def verify() -> None:
     regional = CallerClaims(sub="north-director", roles=["regional_director"], region="north")
     nobody = CallerClaims(sub="anonymous", roles=[])
 
-    console.print(Panel("Governed MCP — boundary demonstration", title="verify"))
+    console.print(Panel("Governor MCP — boundary demonstration", title="verify"))
 
     console.print("\n[bold]1. Admin — sees the whole book[/]")
     _render_result("customers (all)", core.query_customers(admin))
